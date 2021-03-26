@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://wiki.haskell.org/Upgrading_packages -->
+<html lang="ar" dir="ltr" class="client-js translated-rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>حزم الترقية - HaskellWiki</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Upgrading_packages","wgTitle":"Upgrading packages","wgCurRevisionId":62362,"wgRevisionId":62362,"wgArticleId":6773,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Upgrading_packages","wgRelevantArticleId":6773,"wgRequestId":"a63751cfbb75963533777160","wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":false,"dialogs":false,"preview":false,"publish":false},"wgCollapsibleVectorEnabledModules":{"collapsiblenav":true,"experiments":true}});mw.loader.implement("user.options",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.page.startup","skins.hawiki.js"]);});</script>
+<link rel="stylesheet" href="./حزم الترقية - HaskellWiki_files/load.php">
+<style>
+.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}  .mw-content-ltr .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr .mw-collapsible-toggle{float:right} .mw-content-rtl .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl .mw-collapsible-toggle{float:left}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle,.mw-content-ltr caption .mw-collapsible-toggle,.mw-content-rtl caption .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr caption .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl caption .mw-collapsible-toggle{float:none} li .mw-collapsible-toggle,.mw-content-ltr li .mw-collapsible-toggle,.mw-content-rtl li .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr li .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.highlight{font-weight:bold}
+table.wikitable{margin:1em 1em 1em 0;background:#f9f9f9;border:1px #aaaaaa solid;border-collapse:collapse}table.wikitable th,table.wikitable td{border:1px #aaaaaa solid;padding:0.2em}table.wikitable th{background:#f2f2f2;text-align:center}table.wikitable caption{margin-left:inherit;margin-right:inherit}pre.haskell{margin-left:2em}
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:.6em 3.6em .6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba(255,255,255,0.5);border-radius:5px;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important}.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB9ElEQVR4AZWRA3AYURQArxrVHtW2bdu2bdu2zdi2bdu2bWxs7zeehZaw4f70kbs+zI3e/nWK+RWx3aOFlrL56Sy5SxrruG69hlv6OyK+mz+8KDSXdXembj0ispT7tjs4ZTIbpYBvxGSGKzZTeFrb7W/meN002swFs0U8ttpHTkF2BvCqWQrW35929bTsKm5Zb+SEwWwcY8wAngB9m7Z+d+rIPZ/npdy12M5p47n8dXsCYAf0qPy06eGMdktuDu9Qf+JmKl3SWM91qzVcN9tAbEYkwMaq0tyb1m/To5kP170el/BK8/qa6sJr70ydf+T/Uu5ab+Oo/lS0AkUBpIFWlZ9WPhxpse/PHO7YbOOczjL0vZV2lNxPPtG73dYXM+xvm2znrOl83tidoqCwMBgYXsPFB0on5S6pr+eK5TKuW67lgvaKvF8mL1dtfTL32FHxRdyx3cQpg7m4x9sCXKkTIzA4LDH44zWdzaUf71hv5rTG4uyzcusybxSX7aThbMQ8XgCYAp3rzTTQOiIh9PNlzY3FSuZxrzjme1Y7uGS6kjsWO4jPjM4FVjRZsvD4kO9XtTZzQn82NyzWc0B7AmZh6gA/hOYSGhfw9YbOVnarj+S7800AL2BIsxUAbWNToj7bhBuQmZcOsFdoKUC74rGheCwXmqAIQTc9jQcrADIAAAAASUVORK5CYII=);background-image:url(/resources/src/mediawiki.action/images/green-checkmark.png?d94f1)!ie;background-position:left}.postedit-close{position:absolute;padding:0 .8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:black;text-shadow:0 0.0625em 0 white;text-decoration:none;opacity:0.2;filter:alpha(opacity=20)}.postedit-close:hover{color:black;text-decoration:none;opacity:0.4;filter:alpha(opacity=40)}</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:black;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="./حزم الترقية - HaskellWiki_files/load(1).php">
+<script async="" src="./حزم الترقية - HaskellWiki_files/load(2).php"></script>
+<meta name="generator" content="MediaWiki 1.27.4">
+<link rel="shortcut icon" href="https://wiki.haskell.org/wikistatic/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="https://wiki.haskell.org/opensearch_desc.php" title="هاسكل ويكي (ar)">
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.haskell.org/api.php?action=rsd">
+<link rel="copyright" href="https://wiki.haskell.org/HaskellWiki:Copyrights">
+<link rel="alternate" type="application/atom+xml" title="تغذية HaskellWiki Atom" href="https://wiki.haskell.org/index.php?title=Special:RecentChanges&amp;feed=atom">
+<script src="./حزم الترقية - HaskellWiki_files/load(3).php"></script><link type="text/css" rel="stylesheet" charset="UTF-8" href="./حزم الترقية - HaskellWiki_files/translateelement.css"></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Upgrading_packages rootpage-Upgrading_packages skin-hawiki action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ترقية الحزم</font></font></h1>
+									<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">من هاسكل ويكي</font></font></div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+					اذهب إلى:					 </font></font><a href="https://wiki.haskell.org/Upgrading_packages#mw-head"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">تصفح</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> ، 					 </font></font><a href="https://wiki.haskell.org/Upgrading_packages#p-search"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">بحث</font></font></a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">يمكن العثور على معلومات حول تكييف الحزم مع إصدار جديد من GHC أو Cabal في الصفحات التالية:
+</font></font></p>
+<ul><li> <a rel="nofollow" class="external text" href="https://ghc.haskell.org/trac/ghc/wiki/Migration"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">دليل الهجرة</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> ؛ </font><font style="vertical-align: inherit;">توفر هذه الصفحة معلومات للمساعدة في الترحيل بين إصدارات GHC الرئيسية.</font></font></li>
+<li> <a rel="nofollow" class="external text" href="https://github.com/haskell/cabal/wiki/2.2-migration-guide"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.2 دليل الهجرة</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> ؛ </font><font style="vertical-align: inherit;">التحديث لـ Cabal 2.2</font></font></li>
+<li> <a rel="nofollow" class="external text" href="http://coldwa.st/e/blog/2017-09-09-Cabal-2-0.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ما الجديد في Cabal / cabal-install 2.0 - بنية جديدة محسّنة وحقيبة ظهر ومكتبات أجنبية والمزيد! </font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(مقالة مدونة)</font></font></li>
+<li> <a rel="nofollow" class="external text" href="https://github.com/haskell/cabal/wiki/2.0-migration-guide"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.0 دليل الهجرة</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> ؛ </font><font style="vertical-align: inherit;">التحديث لـ Cabal 2.0</font></font></li>
+<li> <a href="https://wiki.haskell.org/Upgrading_packages/Updating_to_GHC_7" title="ترقية الحزم / التحديث إلى GHC 7"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">/ التحديث إلى GHC 7</font></font></a></li>
+<li> <a href="https://wiki.haskell.org/Upgrading_packages/Updating_to_GHC_6.10" title="ترقية الحزم / التحديث إلى GHC 6.10"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">/ التحديث إلى GHC 6.10</font></font></a></li>
+<li> <a href="https://wiki.haskell.org/Upgrading_packages/Updating_to_GHC_6.8" title="ترقية الحزم / التحديث إلى GHC 6.8"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">/ التحديث إلى GHC 6.8</font></font></a></li></ul>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">يمكن العثور على معلومات مفصلة حول التغييرات في أحدث إصدار من </font></font><a rel="nofollow" class="external text" href="https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/index.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GHC في دليل مستخدم GHC</font></font></a>
+</p><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">يتم تتبع معظم النصائح الجديدة لإصلاح إخفاقات البناء على </font></font><a rel="nofollow" class="external free" href="https://github.com/haskell-infra/hackage-trustees/blob/master/cookbook.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://github.com/haskell-infra/hackage-trustees/blob/master/cookbook.md</font></font></a>
+</p>
+<h2><span class="mw-headline" id="Compatibility_with_older_GHC"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">التوافق مع GHC الأقدم</font></font></span></h2>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">للحفاظ على التوافق مع الإصدارات القديمة من GHC ، استخدم كتلة شرطية في ملف .cabal ، والتحقق من التنفيذ (ghc&gt; = xyz). </font><font style="vertical-align: inherit;">على سبيل المثال:
+</font></font></p>
+<pre><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">  إذا كان الضمني (ghc&gt; = 6.12)</font></font><font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    خيارات ghc: -fno-warn-unused-do-bind</font></font><font></font>
+</pre>
+
+<!-- 
+NewPP limit report
+Cached time: 20210326001146
+Cache expiry: 86400
+Dynamic content: false
+CPU time usage: 0.007 seconds
+Real time usage: 0.008 seconds
+Preprocessor visited node count: 6/1000000
+Preprocessor generated node count: 28/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key wikidb_haskell:pcache:idhash:6773-0!*!0!*!*!*!* and timestamp 20210326001146 and revision id 62362
+ -->
+</div>					<div class="printfooter"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+						تم الاسترجاع من " </font></font><a dir="ltr" href="https://wiki.haskell.org/index.php?title=Upgrading_packages&amp;oldid=62362"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://wiki.haskell.org/index.php؟title=Upgrading_packages&amp;oldid=62362</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> "					</font></font></div>
+				<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>				<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">قائمة الإبحار</font></font></h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">الأدوات الشخصية</font></font></h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.haskell.org/index.php?title=Special:UserLogin&amp;returnto=Upgrading+packages" title="نشجعك على تسجيل الدخول ؛  ومع ذلك ، فهي ليست إلزامية [alt-shift-o]" accesskey="o"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">يسجل دخول</font></font></a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="hawikiTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">مساحات الأسماء</font></font></h3>
+						<ul>
+															<li id="ca-nstab-main" class="selected"><span><a href="https://wiki.haskell.org/Upgrading_packages" title="عرض صفحة المحتوى [alt-shift-c]" accesskey="c"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">صفحة</font></font></a></span></li>
+															<li id="ca-talk" class="new"><span><a href="https://wiki.haskell.org/index.php?title=Talk:Upgrading_packages&amp;action=edit&amp;redlink=1" title="مناقشة حول صفحة المحتوى [alt-shift-t]" accesskey="t" rel="discussion"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">مناقشة</font></font></a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="hawikiMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label" tabindex="0">
+							<span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">المتغيرات</font></font></span><a href="https://wiki.haskell.org/Upgrading_packages#" tabindex="-1"></a>
+						</h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="hawikiTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">الآراء</font></font></h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="https://wiki.haskell.org/Upgrading_packages"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">اقرأ</font></font></a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.haskell.org/index.php?title=Upgrading_packages&amp;action=edit" title="هذه الصفحة محمية.  يمكنك عرض مصدرها [alt-shift-e]" accesskey="e"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">أنظر المصدر</font></font></a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.haskell.org/index.php?title=Upgrading_packages&amp;action=history" title="المراجعات السابقة لهذه الصفحة [alt-shift-h]" accesskey="h"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">عرض السجل</font></font></a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="hawikiMenu emptyPortlet" aria-labelledby="p-cactions-label" style="">
+						<h3 id="p-cactions-label" tabindex="0"><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">أكثر</font></font></span><a href="https://wiki.haskell.org/Upgrading_packages#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">بحث</font></font></label>
+						</h3>
+
+						<form action="https://wiki.haskell.org/index.php" id="searchform">
+							<div id="simpleSearch">
+							<input type="search" name="search" placeholder="بحث" title="بحث HaskellWiki [alt-shift-f]" accesskey="f" id="searchInput" tabindex="1" autocomplete="off"><input type="hidden" value="Special:Search" name="title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"></font></font><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><input type="submit" name="go" value="Go" title="انتقل إلى صفحة بهذا الاسم بالضبط إذا كانت موجودة" id="searchButton" class="searchButton"></font></font>							</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="https://wiki.haskell.org/Haskell" title="قم بزيارة الصفحة الرئيسية"></a></div>
+						<div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+			<h3 id="p-navigation-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">التنقل</font></font></h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-mainpage"><a href="https://wiki.haskell.org/Haskell" title="قم بزيارة الصفحة الرئيسية [alt-shift-z]" accesskey="z"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">هاسكل</font></font></a></li><li id="n-portal"><a href="https://wiki.haskell.org/HaskellWiki:Community" title="حول المشروع ، ما يمكنك القيام به ، أين تجد الأشياء"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">مجتمع ويكي</font></font></a></li><li id="n-recentchanges"><a href="https://wiki.haskell.org/Special:RecentChanges" title="قائمة بالتغييرات الأخيرة في الويكي [alt-shift-r]" accesskey="r"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">التغييرات الأخيرة</font></font></a></li><li id="n-randompage"><a href="https://wiki.haskell.org/Special:Random" title="تحميل صفحة عشوائية [alt-shift-x]" accesskey="x"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">صفحة عشوائية</font></font></a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">أدوات</font></font></h3>
+
+			<div class="body">
+									<ul>
+						<li id="t-whatlinkshere"><a href="https://wiki.haskell.org/Special:WhatLinksHere/Upgrading_packages" title="قائمة بجميع صفحات wiki التي ترتبط هنا [alt-shift-j]" accesskey="j"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ما يربط هنا</font></font></a></li><li id="t-recentchangeslinked"><a href="https://wiki.haskell.org/Special:RecentChangesLinked/Upgrading_packages" title="التغييرات الأخيرة في الصفحات المرتبطة من هذه الصفحة [alt-shift-k]" accesskey="k"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">التغييرات ذات الصلة</font></font></a></li><li id="t-specialpages"><a href="https://wiki.haskell.org/Special:SpecialPages" title="قائمة بجميع الصفحات الخاصة [alt-shift-q]" accesskey="q"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">صفحات خاصة</font></font></a></li><li id="t-print"><a href="https://wiki.haskell.org/index.php?title=Upgrading_packages&amp;printable=yes" rel="alternate" title="نسخة قابلة للطباعة من هذه الصفحة [alt-shift-p]" accesskey="p"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">نسخة قابلة للطباعة</font></font></a></li><li id="t-permalink"><a href="https://wiki.haskell.org/index.php?title=Upgrading_packages&amp;oldid=62362" title="رابط دائم لهذه المراجعة للصفحة"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ارتباط دائم</font></font></a></li><li id="t-info"><a href="https://wiki.haskell.org/index.php?title=Upgrading_packages&amp;action=info" title="مزيد من المعلومات حول هذه الصفحة"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">معلومات الصفحة</font></font></a></li><li id="t-cite"><a href="https://wiki.haskell.org/index.php?title=Special:CiteThisPage&amp;page=Upgrading_packages&amp;id=62362" title="معلومات عن كيفية الاستشهاد بهذه الصفحة"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">استشهد بهذه الصفحة</font></font></a></li>					</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> تم إجراء آخر تعديل على هذه الصفحة في 19 مارس 2018 الساعة 20:19.</font></font></li>
+											<li id="footer-info-copyright"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">المحتوى الأخير متاح بموجب </font></font><a href="https://wiki.haskell.org/HaskellWiki:Copyrights" title="HaskellWiki: حقوق النشر"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ترخيص</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> إباحي </font><a href="https://wiki.haskell.org/HaskellWiki:Copyrights" title="HaskellWiki: حقوق النشر"><font style="vertical-align: inherit;">بسيط</font></a><font style="vertical-align: inherit;"> .</font></font></li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.haskell.org/HaskellWiki:Privacy_policy" title="HaskellWiki: سياسة الخصوصية"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">سياسة خاصة</font></font></a></li>
+											<li id="footer-places-about"><a href="https://wiki.haskell.org/HaskellWiki:About" title="هاسكل ويكي: حول"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">حول هاسكل ويكي</font></font></a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.haskell.org/HaskellWiki:General_disclaimer" title="HaskellWiki: إخلاء مسؤولية عام"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">إخلاء المسؤولية</font></font></a></li>
+									</ul>
+									<div style="clear:both"></div>
+		</div>
+		<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.state({"user":"ready","user.groups":"ready"});mw.loader.load(["mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":88});});</script><div id="goog-gt-tt" class="skiptranslate" dir="rtl"><div style="padding: 8px;"><div><div class="logo"><img src="./حزم الترقية - HaskellWiki_files/translate_24dp.png" width="20" height="20" alt="Google ترجمة"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">النص الأصلي</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">المساهمة بترجمة أفضل</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
+	
+
+<div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div><div class="suggestions" style="display: none; font-size: 13px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>
